@@ -52,14 +52,18 @@ const Index = () => {
     <div className={`min-h-screen flex items-center justify-center p-4 transition-colors duration-500 ${bgClass}`}>
       <canvas ref={canvasRef} className="hidden" />
       
-      <div className="animate-scale-in relative group">
+      <div className="animate-scale-in relative group flex flex-col items-center gap-6">
         <img
           ref={imgRef}
           src="https://cdn.poehali.dev/files/IMG_5969.jpeg"
           alt="Beautiful photograph"
-          className="max-w-full max-h-[85vh] w-auto h-auto rounded-2xl shadow-2xl object-contain"
+          className="max-w-full max-h-[75vh] w-auto h-auto rounded-2xl shadow-2xl object-contain"
           crossOrigin="anonymous"
         />
+        <div className="text-center">
+          <p className="text-2xl md:text-3xl font-light tracking-wide text-slate-800 mb-2">I love you forever</p>
+          <p className="text-lg md:text-xl italic text-slate-600">Your V</p>
+        </div>
         <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
           <Button
             onClick={handleDownload}
