@@ -1,11 +1,12 @@
-// Update this page (the content is just a fallback if you fail to update the page)
-
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-slate-100 p-4">
+      <div className="animate-scale-in">
+        <img
+          src="https://cdn.poehali.dev/projects/4cea319d-7923-4aef-82ea-652d4360834e/files/50015b30-80ab-4c41-afc4-b8af50c9ae1b.jpg"
+          alt="Beautiful photograph"
+          className="max-w-full max-h-[85vh] w-auto h-auto rounded-2xl shadow-2xl object-contain"
+        />
       </div>
     </div>
   );
