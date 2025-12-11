@@ -14,18 +14,9 @@ const backgrounds = [
 ];
 
 const Index = () => {
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [bgClass, setBgClass] = useState(backgrounds[0].value);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
-
-  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const url = URL.createObjectURL(file);
-      setImageUrl(url);
-    }
-  };
 
   const handleDownload = () => {
     if (!imgRef.current || !canvasRef.current) return;
@@ -61,54 +52,25 @@ const Index = () => {
     <div className={`min-h-screen flex items-center justify-center p-4 transition-colors duration-500 ${bgClass}`}>
       <canvas ref={canvasRef} className="hidden" />
       
-      {imageUrl ? (
-        <div className="animate-scale-in relative group">
-          <img
-            ref={imgRef}
-            src={imageUrl}
-            alt="Your photograph"
-            className="max-w-full max-h-[85vh] w-auto h-auto rounded-2xl shadow-2xl object-contain"
-            crossOrigin="anonymous"
-          />
-          <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-            <Button
-              onClick={handleDownload}
-              variant="secondary"
-              size="icon"
-              className="shadow-lg"
-            >
-              <Icon name="Download" size={20} />
-            </Button>
-            <Button
-              onClick={() => setImageUrl(null)}
-              variant="secondary"
-              size="icon"
-              className="shadow-lg"
-            >
-              <Icon name="X" size={20} />
-            </Button>
-          </div>
+      <div className="animate-scale-in relative group">
+        <img
+          ref={imgRef}
+          src="https://cdn.poehali.dev/files/IMG_5969.jpeg"
+          alt="Beautiful photograph"
+          className="max-w-full max-h-[85vh] w-auto h-auto rounded-2xl shadow-2xl object-contain"
+          crossOrigin="anonymous"
+        />
+        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+          <Button
+            onClick={handleDownload}
+            variant="secondary"
+            size="icon"
+            className="shadow-lg"
+          >
+            <Icon name="Download" size={20} />
+          </Button>
         </div>
-      ) : (
-        <div className="animate-fade-in text-center">
-          <label htmlFor="photo-upload" className="cursor-pointer">
-            <div className="flex flex-col items-center gap-4 p-12 rounded-2xl border-2 border-dashed border-slate-300 hover:border-slate-400 transition-colors bg-white/50">
-              <Icon name="ImagePlus" size={48} className="text-slate-400" />
-              <div>
-                <p className="text-lg font-medium text-slate-700 mb-1">Добавить фотографию</p>
-                <p className="text-sm text-slate-500">Нажми, чтобы выбрать файл</p>
-              </div>
-            </div>
-            <input
-              id="photo-upload"
-              type="file"
-              accept="image/*"
-              onChange={handleImageUpload}
-              className="hidden"
-            />
-          </label>
-        </div>
-      )}
+      </div>
 
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 animate-fade-in">
         <div className="flex gap-2 p-3 rounded-full bg-white/80 backdrop-blur-sm shadow-lg">
