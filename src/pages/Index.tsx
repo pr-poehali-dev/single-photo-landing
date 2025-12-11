@@ -58,7 +58,6 @@ const Index = () => {
           src="https://cdn.poehali.dev/files/IMG_5969.jpeg"
           alt="Beautiful photograph"
           className="max-w-full max-h-[75vh] w-auto h-auto rounded-2xl shadow-2xl object-contain"
-          crossOrigin="anonymous"
         />
         <div className="text-center">
           <p className="text-2xl md:text-3xl font-light tracking-wide text-slate-800 mb-2">I love you forever</p>
